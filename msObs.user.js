@@ -6,7 +6,7 @@
   //@namespace   msObs
   //@include     https://uview.test.instructure.com/*
   //@include     https://uview.instructure.com/*
-  //@version     v0.06.05
+  //@version     vAlpha
   //@grant       none
 // ==/UserScript==
 
@@ -177,23 +177,21 @@ let msObs = {
       init: (recipients, context, callback) => {
         msObs.log("--Observers 2.0--");
 
-        class Observers {
-          constructor() {
-            this.contexts = [context];
-            this.contexts.count = 0;
-            this.contexts.total = 0;
-            this.contexts.getCount = 0;
-            this.expand = [];
-            this.expand.count = 0;
-            this.expand.total = 0;
-            this.users = [];
-            this.users.simplified = [];
-            this.enrolments = [];
-            this.observers = [];
-            this.callback = callback;
-            this.matchFlag = 0;
-          }
-        }
+        let Observers = () => {
+          this.contexts = [context];
+          this.contexts.count = 0;
+          this.contexts.total = 0;
+          this.contexts.getCount = 0;
+          this.expand = [];
+          this.expand.count = 0;
+          this.expand.total = 0;
+          this.users = [];
+          this.users.simplified = [];
+          this.enrolments = [];
+          this.observers = [];
+          this.callback = callback;
+          this.matchFlag = 0;
+        };
 
         let results = new Observers();
 
@@ -493,13 +491,11 @@ let msObs = {
 
     // old lookup methods below. Still used in gradebook lookups.
     getEnrolments: (id, mode, returnCallback) => {
-      class CollatedEnrolments {
-        constructor() {
-          this.total = id.length;
-          this.count = 0;
-          this.enrolments = [];
-        }
-      }
+      let CollatedEnrolments = () => {
+        this.total = id.length;
+        this.count = 0;
+        this.enrolments = [];
+      };
 
       let collatedEnrolments = new CollatedEnrolments();
 

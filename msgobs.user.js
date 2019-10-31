@@ -1,3 +1,12 @@
+// ==UserScript==
+@name        Message Observers
+@namespace   msObs
+@include     https://uview.test.instructure.com/*
+@include     https://uview.instructure.com/*
+@version     v0.06.05
+@grant       none
+// ==/UserScript==
+
 let msObs = {
   options: {
     colour: "bisque", // colour for observers. Use any HTML colour like '#FF0000' or 'red'
